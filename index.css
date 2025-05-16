@@ -122,6 +122,9 @@ header {
 
 .hero-cta {
     margin-bottom: var(--spacing-lg);
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
 }
 
 .hero-image {
@@ -277,6 +280,11 @@ header {
 .experience-date, .experience-location {
     color: var(--text-secondary);
     margin-bottom: var(--spacing-sm);
+}
+
+.college-name {
+    color: var(--primary-color);
+    font-weight: 600;
 }
 
 .expand-icon {
@@ -435,6 +443,82 @@ textarea {
     width: 100%;
     padding: 12px;
     font-size: 1rem;
+}
+
+/* Honors and Awards Section */
+.honors-awards {
+    background-color: var(--dark-bg);
+}
+
+.honors-category {
+    margin-bottom: var(--spacing-xl);
+    background-color: var(--card-bg);
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    border-left: 3px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.honors-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.honors-category h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.honors-subtitle {
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: var(--spacing-md);
+}
+
+.honors-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.honors-list li {
+    margin-bottom: var(--spacing-md);
+    color: var(--text-secondary);
+    padding-left: 30px;
+    position: relative;
+}
+
+.honors-list li::before {
+    content: '•';
+    color: var(--primary-color);
+    position: absolute;
+    left: 10px;
+}
+
+/* Why Data & Analytics Section */
+.why-data-analytics {
+    background-color: var(--dark-bg);
+}
+
+.why-content {
+    background-color: var(--card-bg);
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    border-left: 3px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.why-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.why-content p {
+    margin-bottom: var(--spacing-md);
+    line-height: 1.8;
+}
+
+.why-content p:last-child {
+    margin-bottom: 0;
 }
 
 /* Footer */
