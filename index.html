@@ -8,6 +8,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#">Prashanth Ravella</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#technologies">Technologies</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#honors">Honors</a></li>
+                <li><a href="#why-data">Why Data</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+    
     <header>
         <div class="hero">
             <p class="hero-subtitle">Hey, I'm Prashanth Ravella</p>
@@ -28,7 +52,7 @@
         </div>
     </header>
 
-    <section class="services">
+    <section id="services" class="services">
         <h2>Services I Offer</h2>
         <p class="section-description">I provide end-to-end solutions across data and analytics, helping businesses turn information into impact. My services include:</p>
         
@@ -67,7 +91,7 @@
         </div>
     </section>
 
-    <section class="about">
+    <section id="about" class="about">
         <h2>About Me</h2>
         <p>I'm Prashanth Ravella, a Data Engineer and Analyst with 4.5 years of hands-on experience in designing, building, and optimizing real-time data solutions. I specialize in creating scalable ETL/ELT pipelines, streaming architectures, and interactive data products that help organizations turn raw data into reliable insights.</p>
         <p>My background includes leading large-scale monitoring systems for over 60,000 devices globally, reducing incident response times by over 50%, and developing real-time reporting dashboards used by C-suite leaders. I'm proficient with tools like Apache Kafka, Elasticsearch, TimescaleDB, Grafana, and Docker, and have built end-to-end systems that power decision-making at every level.</p>
@@ -87,7 +111,7 @@
         </div>
     </section>
 
-    <section class="experience">
+    <section id="experience" class="experience">
         <h2>Experience</h2>
         
         <div class="experience-item">
@@ -101,7 +125,8 @@
                         <p class="experience-location"><span class="college-name">University of Illinois Springfield</span><br> Springfield, Illinois, USA</p>
                         <p class="experience-date">Jan 2024 to May 2025</p>
                     </div>
-                    <span class="expand-icon"><i class="fas fa-chevron-down"></i></span>
+
+
                 </div>
                 <div class="experience-details" id="exp1">
                     <ul>
@@ -126,7 +151,8 @@
                         <p class="experience-location">Vunet Systems<br> Bengaluru, Karnataka, India</p>
                         <p class="experience-date">June 2022 to July 2023</p>
                     </div>
-                    <span class="expand-icon"><i class="fas fa-chevron-down"></i></span>
+
+
                 </div>
                 <div class="experience-details" id="exp2">
                     <ul>
@@ -156,7 +182,8 @@
                         <p class="experience-location">Vunet Systems<br> Bengaluru, Karnataka, India</p>
                         <p class="experience-date">Aug 2020 to June 2022</p>
                     </div>
-                    <span class="expand-icon"><i class="fas fa-chevron-down"></i></span>
+
+
                 </div>
                 <div class="experience-details" id="exp3">
                     <ul>
@@ -171,7 +198,7 @@
         </div>
     </section>
 
-    <section class="education">
+    <section id="education" class="education">
         <h2>Education</h2>
         
         <div class="education-item">
@@ -199,7 +226,7 @@
         </div>
     </section>
 
-    <section class="technologies">
+    <section id="technologies" class="technologies">
         <h2>Technologies</h2>
         
         <div class="tech-category">
@@ -261,7 +288,7 @@
         </div>
     </section>
 
-    <section class="projects">
+    <section id="projects" class="projects">
         <h2>Projects</h2>
         <p class="section-description">Here are some of the key projects I've worked on throughout my career.</p>
         
@@ -286,7 +313,7 @@
         </div>
     </section>
 
-    <section class="honors-awards">
+    <section id="honors" class="honors-awards">
         <h2>Honors and Awards</h2>
         <div class="honors-category">
             <h3>🎓 Bachelor's Achievements</h3>
@@ -321,10 +348,10 @@
         </div>
     </section>
     
-    <section class="why-data-analytics">
+    <section id="why-data" class="why-data-analytics">
         <h2>Why I Chose the Path of Data & Analytics</h2>
         <div class="why-content">
-             <p>Every journey begins with curiosity, mine began with a fascination for how technology shapes the world around us. During my bachelor’s in Information Science & Engineering, I developed a strong foundation in IT systems, algorithms, and architecture. But what truly ignited my passion was not just how systems operate but how they produce and rely on data to make smarter decisions.</p>
+            <p>Every journey begins with curiosity, mine began with a fascination for how technology shapes the world around us. During my bachelor’s in Information Science & Engineering, I developed a strong foundation in IT systems, algorithms, and architecture. But what truly ignited my passion was not just how systems operate but how they produce and rely on data to make smarter decisions.</p>
             
             <p>My curiosity turned into clarity when I joined a fast-paced startup as a Data Engineer and Analyst. Unlike rigid roles, this experience immersed me in diverse projects across multiple clients, where I had the unique opportunity to build real-time data pipelines, automate reporting, and design dashboards that directly supported operational decisions. I witnessed firsthand how data can drive clarity, agility, and growth from reducing downtime and increasing system performance to delivering insights that shaped business outcomes. I wasn’t just solving problems I was influencing results.</p>
             
@@ -387,19 +414,62 @@
     </footer>
 
     <script src="highlight-companies.js"></script>
+    <script src="navbar.js"></script>
     <script>
+        function toggleSection(id) {
+            const content = document.getElementById(id);
+            const icon = event.currentTarget;
+            
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.classList.remove('active');
+            } else {
+                content.style.maxHeight = content.scrollHeight + 1000 + 'px';
+                icon.classList.add('active');
+            }
+        }
+        
+        // Initialize experience section as expanded
+        document.addEventListener('DOMContentLoaded', function() {
+            const experienceContent = document.getElementById('experience-content');
+            if (experienceContent) {
+                experienceContent.style.maxHeight = experienceContent.scrollHeight + 1000 + 'px';
+            }
+        });
+        
         function toggleExperience(id) {
             const details = document.getElementById(id);
-            const expandIcon = event.currentTarget.querySelector('.expand-icon');
             
             if (details.style.display === 'block') {
                 details.style.display = 'none';
-                expandIcon.classList.remove('active');
             } else {
                 details.style.display = 'block';
-                expandIcon.classList.add('active');
             }
         }
+        
+        function toggleAllExperiences() {
+            const icon = document.querySelector('.section-expand-icon');
+            icon.classList.toggle('active');
+            
+            const allDetails = document.querySelectorAll('.experience-details');
+            const isExpanded = icon.classList.contains('active');
+            
+            allDetails.forEach(detail => {
+                if (isExpanded) {
+                    detail.style.display = 'block';
+                } else {
+                    detail.style.display = 'none';
+                }
+            });
+        }
+        
+        // Initialize experience details as collapsed
+        document.addEventListener('DOMContentLoaded', function() {
+            const allDetails = document.querySelectorAll('.experience-details');
+            allDetails.forEach(detail => {
+                detail.style.display = 'none';
+            });
+        });
         
         function saveFormData() {
             const name = document.getElementById('name').value;
