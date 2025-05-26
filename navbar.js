@@ -6,10 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Toggle mobile menu
     hamburger.addEventListener('click', function() {
-        // Toggle navigation
         navLinks.classList.toggle('active');
-        
-        // Animate hamburger
         hamburger.classList.toggle('active');
         
         // Animate links
@@ -22,19 +19,33 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Close menu when clicking a link
-    navLinksItems.forEach(item => {
-        item.addEventListener('click', function() {
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!navLinks.contains(event.target) && !hamburger.contains(event.target) && navLinks.classList.contains('active')) {
             navLinks.classList.remove('active');
             hamburger.classList.remove('active');
             
             navLinksItems.forEach(link => {
                 link.style.animation = '';
             });
+        }
+    });
+    
+    // Close mobile menu when clicking on a link
+    navLinksItems.forEach(item => {
+        item.addEventListener('click', function() {
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+                
+                navLinksItems.forEach(link => {
+                    link.style.animation = '';
+                });
+            }
         });
     });
     
-    // Add scroll event for navbar background
+    // Add shadow to navbar on scroll
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 50) {
@@ -42,5 +53,22 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             navbar.classList.remove('scrolled');
         }
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70, // Adjust for navbar height
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
 });
