@@ -24,6 +24,7 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 /* Navigation Bar */
@@ -199,6 +200,7 @@ header {
     align-items: center;
     padding: var(--spacing-xl) 10%;
     min-height: 80vh;
+    padding-top: 80px; /* Add space for fixed navbar */
 }
 
 .hero {
@@ -283,6 +285,8 @@ header {
     transition: all 0.3s ease;
     border-left: 3px solid var(--primary-color);
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .service-card:hover {
@@ -633,6 +637,86 @@ textarea {
     margin-bottom: 0;
 }
 
+/* Experience Section */
+.experience-item, .education-item {
+    display: flex;
+    margin-bottom: var(--spacing-lg);
+}
+
+.experience-badge, .education-badge {
+    margin-right: var(--spacing-lg);
+    background-color: var(--primary-color);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.experience-content, .education-content {
+    flex-grow: 1;
+}
+
+.company-logo-container {
+    width: 50px;
+    height: 50px;
+    margin-right: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.company-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.experience-header-content {
+    flex-grow: 1;
+}
+
+.experience-date, .experience-location {
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.experience-header {
+    position: relative;
+    cursor: pointer;
+    padding: var(--spacing-md);
+    background-color: var(--card-bg);
+    border-radius: 4px;
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+}
+
+.experience-header::after {
+    content: '\f107'; /* Font Awesome down arrow */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 15px;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.experience-header.active::after {
+    transform: rotate(180deg); /* Rotate arrow when active */
+}
+
+.experience-details {
+    display: none;
+    padding: var(--spacing-md);
+    background-color: var(--card-bg);
+    border-radius: 4px;
+    margin-bottom: var(--spacing-lg);
+    border-left: 3px solid var(--primary-color);
+}
+
 /* Footer */
 footer {
     display: flex;
@@ -664,49 +748,69 @@ footer {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
+/* Fixed Width Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 /* Responsive Design */
 @media (max-width: 992px) {
     .nav-links {
         position: fixed;
-        right: -100%;
-        top: 70px;
+        left: -100%;
+        top: 60px;
         flex-direction: column;
         background-color: var(--dark-bg);
         width: 100%;
         text-align: center;
         transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         padding: 20px 0;
-        height: calc(100vh - 70px);
-        overflow-y: auto;
+        z-index: 999;
     }
-    
+
     .nav-links.active {
-        right: 0;
+        left: 0;
     }
-    
-    .nav-links li {
-        margin: 2.5rem 0;
-    }
-    
-    .nav-links a {
-        font-size: 1.2rem;
-    }
-    
+
     .hamburger {
         display: block;
     }
-    
+
     .hamburger.active .bar:nth-child(2) {
         opacity: 0;
     }
-    
+
     .hamburger.active .bar:nth-child(1) {
         transform: translateY(8px) rotate(45deg);
     }
-    
+
     .hamburger.active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 120px;
+    }
+
+    .hero {
+        max-width: 100%;
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -716,19 +820,19 @@ footer {
         text-align: center;
         padding: var(--spacing-xl) 5%;
     }
-    
+
     .hero {
         margin-bottom: var(--spacing-xl);
     }
-    
+
     section {
         padding: var(--spacing-xl) 5%;
     }
-    
+
     .services-grid, .projects-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .contact-container {
         flex-direction: column;
     }
